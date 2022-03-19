@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import Image from "next/image"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import Squiggle from "../components/shapes/Squiggle"
@@ -28,8 +29,8 @@ const Home: NextPage = () => {
             <h2 className='text-4xl pb-3 text-purple-800'>Hi, I'm Aodhagán! 👋</h2>
             <p>I'm a frontend web developer currently working at a company called Connectr.</p>
             <div className='flex justify-center pb-6 pt-6'>
-              <div className='relative h-64 w-64 rounded-full border-4 border-purple-700 overflow-hidden'>
-                <img src='/profile.jpeg' alt='Aodhagán Murphy profile image' />
+              <div className='relative h-64 w-64 bg-purple-700 rounded-full border-4 border-purple-700 overflow-hidden'>
+                <Image src='/profile.jpeg' alt='Aodhagán Murphy profile image' />
               </div>
             </div>
             <p className='mb-3'>
