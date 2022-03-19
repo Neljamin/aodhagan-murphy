@@ -42,6 +42,7 @@ const Home: NextPage = () => {
                 className='block w-max p-3 bg-purple-800 text-white rounded'
                 href='https://www.linkedin.com/in/aodhagán-murphy/'
                 target='_blank'
+                rel='noreferrer'
               >
                 My LinkedIn
               </a>
