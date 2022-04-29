@@ -7,21 +7,27 @@ type BoxProps = {
   position: [number, number, number]
 }
 
+// TODO tidy up this file
+
 function Box(props: BoxProps) {
   const { color, position, initialFloatingDirection } = props
   const [floatDirection, setFloatDirection] = useState<"up" | "down">(initialFloatingDirection)
   const ref = useRef<JSX.IntrinsicElements["mesh"]>()
 
   useFrame(() => {
-    if (ref.current) {
+    if (ref?.current?.position) {
       if (floatDirection === "up") {
+        //@ts-ignore
         ref.current.position.y += 0.005
       } else {
+        //@ts-ignore
         ref.current.position.y -= 0.005
       }
 
-      if (ref.current.position.y > position[1] + 0.5) {
+      //@ts-ignore
+      if (ref?.current?.position.y > position[1] + 0.5) {
         setFloatDirection("down")
+        //@ts-ignore
       } else if (ref.current.position.y < position[1] - 0.5) {
         setFloatDirection("up")
       }
@@ -29,6 +35,7 @@ function Box(props: BoxProps) {
   })
 
   return (
+    // @ts-ignore
     <mesh {...props} ref={ref}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={color} />
