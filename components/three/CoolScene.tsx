@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { CanvasTexture, PointLight, TextureLoader } from "three"
+import { PointLight, TextureLoader } from "three"
 import { Loader, PerspectiveCamera, Image } from "@react-three/drei"
 import { Canvas, useLoader } from "@react-three/fiber"
 import { Physics, usePlane, useBox } from "@react-three/cannon"
