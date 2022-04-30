@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
       <main className='relative flex flex-col  items-center  flex-grow'>
         <AboutMe />
-        <div className='w-full h-40 bg-blue-100'>
+        <div className='w-full h-40'>
           <CoolScene />
         </div>
       </main>
