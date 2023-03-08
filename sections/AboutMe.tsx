@@ -21,7 +21,7 @@ export default function AboutMe({ bio }: { bio: never }) {
       {bio && documentToReactComponents(bio.fields.description, {})}
       <div className="flex justify-center">
         <a
-          className="block w-max p-3 bg-purple-800 text-white rounded"
+          className="btn btn-primary"
           href="https://www.linkedin.com/in/aodhagán-murphy/"
           target="_blank"
           rel="noreferrer"
