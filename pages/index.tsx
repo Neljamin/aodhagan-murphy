@@ -32,6 +32,7 @@ const Home = ({ bio }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps = async () => {
   const bio = await contentClient.getEntry(BIO_ID);
+
   return { props: { bio } };
 };
 
