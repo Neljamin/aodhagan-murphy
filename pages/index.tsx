@@ -2,8 +2,7 @@ import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { contentClient } from "../utils/contentClient";
 import Footer from "../landmarks/Footer";
-import Header from "../landmarks/Header";
-import AboutMe from "../sections/AboutMe";
+import HeroBanner from "../landmarks/HeroBanner";
 import { IBioFields } from "../@types/generated/contentful";
 import { Entry } from "contentful";
 
@@ -21,10 +20,9 @@ const Home = ({ bio }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <meta name="description" content="Aodhagán Murphy personal website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
 
       <main className="relative flex flex-col  items-center  flex-grow">
-        <AboutMe bio={bio} />
+        <HeroBanner bio={bio} />
       </main>
       <Footer />
     </div>
