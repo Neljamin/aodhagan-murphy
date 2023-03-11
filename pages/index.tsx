@@ -1,9 +1,11 @@
-import type { InferGetStaticPropsType, NextPage } from "next";
+import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { contentClient } from "../utils/contentClient";
 import Footer from "../landmarks/Footer";
 import Header from "../landmarks/Header";
 import AboutMe from "../sections/AboutMe";
+import { IBioFields } from "../@types/generated/contentful";
+import { Entry } from "contentful";
 
 const BIO_ID = "7C9MZB6eSWZt6vKKThecDT";
 
@@ -22,7 +24,6 @@ const Home = ({ bio }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Header />
 
       <main className="relative flex flex-col  items-center  flex-grow">
-        {/* @ts-expect-error */}
         <AboutMe bio={bio} />
       </main>
       <Footer />
@@ -31,7 +32,7 @@ const Home = ({ bio }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps = async () => {
-  const bio = await contentClient.getEntry(BIO_ID);
+  const bio: Entry<IBioFields> = await contentClient.getEntry(BIO_ID);
 
   return { props: { bio } };
 };
