@@ -20,14 +20,27 @@ export default function AboutMe({ bio }: { bio: Entry<IBioFields> }) {
               <RichText text={bio.fields.description} />
             )}
           </div>
-          <a
-            className="btn btn-info"
-            href="https://www.linkedin.com/in/aodhagan-murphy/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            My LinkedIn
-          </a>
+          <div className="btn-group">
+            <a
+              className="btn btn-info"
+              href="https://www.linkedin.com/in/aodhagan-murphy/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              My LinkedIn
+            </a>
+            <a className="btn btn-error" href="mailto:aodhaganmurphy@gmail.com">
+              Email
+            </a>
+            <a
+              className="btn btn-accent"
+              href="https://github.com/Neljamin"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>

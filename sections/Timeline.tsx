@@ -1,5 +1,5 @@
 import { Entry } from "contentful";
-import { startCase, toLower } from "lodash";
+import { startCase } from "lodash";
 import { ITimelineFields } from "../@types/generated/contentful";
 import { RichText } from "../components/text/RichText";
 
@@ -17,15 +17,19 @@ const TAG_BADGE_CLASS_MAP: Record<string, string> = {
 
 export const Timeline = ({ timeline }: TimelineProps) => {
   return (
-    <section className="w-full flex justify-center p-12 bg-gray-200">
-      <ul className="steps steps-vertical">
+    <section className="w-full flex justify-center bg-gray-200">
+      <ul className="steps steps-vertical mt-6">
         {timeline.fields.timelineItems &&
           timeline.fields.timelineItems.map((item) => (
-            <li key={item.sys.id} className="step step-neutral" data-content="">
-              <div className="card mb-6 w-96 h-96 bg-base-100 shadow-xl ">
+            <li
+              key={item.sys.id}
+              className="step step-neutral pr-6 pl-3"
+              data-content=""
+            >
+              <div className="card mb-6 min-w-72 w-full min-h-64 bg-base-100 shadow-xl ">
                 <figure className="p-6">
                   <img
-                    className="h-12"
+                    className="h-12 object-contain"
                     src={item.fields.image?.fields.file.url}
                     alt={item.fields.title + " image"}
                   />
@@ -38,7 +42,7 @@ export const Timeline = ({ timeline }: TimelineProps) => {
                     {item.metadata.tags.map((tag) => (
                       <div
                         key={tag.sys.id}
-                        className={`badge mr-2 ${
+                        className={`badge mr-2 mt-2 ${
                           TAG_BADGE_CLASS_MAP[tag.sys.id]
                         }`}
                       >
