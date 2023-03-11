@@ -9,6 +9,9 @@ export interface IBioFields {
 
   /** Description */
   description?: Document | undefined;
+
+  /** backgroundImage */
+  backgroundImage?: Asset | undefined;
 }
 
 export interface IBio extends Entry<IBioFields> {
@@ -28,9 +31,62 @@ export interface IBio extends Entry<IBioFields> {
   };
 }
 
-export type CONTENT_TYPE = "bio";
+export interface ITimelineFields {
+  /** Title */
+  title?: string | undefined;
 
-export type IEntry = IBio;
+  /** Timeline Items */
+  timelineItems?: ITimelineItem[] | undefined;
+}
+
+export interface ITimeline extends Entry<ITimelineFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "timeline";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ITimelineItemFields {
+  /** Title */
+  title: string;
+
+  /** Description */
+  description?: Document | undefined;
+
+  /** Image */
+  image?: Asset | undefined;
+}
+
+export interface ITimelineItem extends Entry<ITimelineItemFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "timelineItem";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE = "bio" | "timeline" | "timelineItem";
+
+export type IEntry = IBio | ITimeline | ITimelineItem;
 
 export type LOCALE_CODE = "en-US";
 
