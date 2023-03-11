@@ -21,7 +21,7 @@ export default function AboutMe({ bio }: { bio: Entry<IBioFields> }) {
             )}
           </div>
           <a
-            className="btn btn-glass"
+            className="btn btn-info"
             href="https://www.linkedin.com/in/aodhagan-murphy/"
             target="_blank"
             rel="noreferrer"
